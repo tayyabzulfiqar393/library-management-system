@@ -146,11 +146,4 @@ This repository contains the backend API for a Library Management System built u
   }
   ```
 
----
-Feel free to fork the repository, make changes, and submit pull requests. Contributions are welcome!
-
----
-
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
 
