@@ -4,6 +4,14 @@ const Borrower = require('../models/Borrower');
 exports.createBook = async (req, res) => {
   try {
     const { title, author, isbn, availableCopies } = req.body;
+    // Check if the author already has 5 books
+    const booksByAuthor = await Book.find({ author });
+    if (booksByAuthor.length >= 5) {
+      return res.status(400).json({
+        error: "This author is already linked to 5 books. Cannot link more.",
+      });
+    }
+
     const newBook = new Book({ title, author, isbn, availableCopies });
     await newBook.save();
     res.status(201).json({ message: 'Book created successfully', book: newBook });
